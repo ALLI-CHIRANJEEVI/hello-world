@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Expense Tracker</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Personal Expense Tracker</h1>
+  <form id="expenseForm" action="/add_expense" method="post">
+    <label for="expenseName">Expense Name:</label>
+    <input type="text" id="expenseName" name="expenseName" required>
+    <label for="expenseAmount">Amount:</label>
+    <input type="number" id="expenseAmount" name="expenseAmount" min="0" required>
+    <label for="expenseDate">Date:</label>
+    <input type="date" id="expenseDate" name="expenseDate" required>
+    <button type="submit">Add Expense</button>
+  </form>
+  
+  <h2>Expenses</h2>
+  <p>Total Expenses: <span id="totalExpenses">$0.00</span></p>
+  <form id="dateRangeForm">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" required>
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" required>
+    <button type="submit">Filter</button>
+  </form>
+  <select id="sortSelect">
+    <option value="name">Name</option>
+    <option value="amount">Amount</option>
+    <option value="date">Date</option>
+  </select>
+  <table id="expenseTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody id="expenseList"></tbody>
+  </table>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
